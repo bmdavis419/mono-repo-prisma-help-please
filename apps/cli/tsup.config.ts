@@ -9,5 +9,5 @@ export default defineConfig({
   format: ["cjs", "esm"],
   minify: isProduction,
   sourcemap: true,
-  external: ["../../packages"],
+  external: ["../../packages/database"],
 });
