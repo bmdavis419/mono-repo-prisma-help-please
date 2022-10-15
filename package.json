@@ -1,0 +1,29 @@
+{
+  "name": "mono-repo-prisma-help-please",
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "db:push": "prisma db push --schema=./packages/database/prisma/schema.prisma",
+    "db:studio": "prisma studio --schema=./packages/database/prisma/schema.prisma",
+    "dev:good": "turbo run dev --filter=web --filter=database",
+    "dev:bad": "turbo run dev --filter=cli --filter=database"
+  },
+  "devDependencies": {
+    "eslint-config-custom": "*",
+    "prettier": "latest",
+    "string-replace-loader": "^3.1.0",
+    "turbo": "latest"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "packageManager": "npm@8.11.0"
+}
